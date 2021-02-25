@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Task;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Validator;
 
 class TaskController extends Controller
 {
@@ -38,6 +39,19 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'task' => 'required|string|max:255',
+            'expire_time' => 'required',
+
+        ]);
+
+        if ($validator->fails())
+        {
+
+            return back()->withErrors($validator);
+        }
+
+
         $task = new Task;
         $task->task = $request->input('task');
         $dateformat = Carbon::createFromFormat('Y-m-d\TH:i',$request->input('expire_time'));
@@ -54,8 +68,6 @@ class TaskController extends Controller
      */
     public function show(Task $task)
     {
-
-
         return view('tasks.show', compact('task'));
     }
 
@@ -79,6 +91,20 @@ class TaskController extends Controller
      */
     public function update(Request $request, Task $task)
     {
+
+        $validator = Validator::make($request->all(), [
+            'task' => 'required|string|max:255',
+            'expire_time' => 'required',
+
+        ]);
+
+        if ($validator->fails())
+        {
+
+            return back()->withErrors($validator);
+        }
+
+
         $task->task = $request->input('task');
         $dateformat = Carbon::createFromFormat('Y-m-d\TH:i',$request->input('expire_time'));
         $task->expire_time = $dateformat;

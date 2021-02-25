@@ -21,6 +21,14 @@
                             <input type="text" name="task" class="form-control">
                         </div>
 
+                        @if($errors->has('task'))
+
+                            <div class="alert alert-danger" role="alert">
+                                {{ $errors->first('task') }}
+                            </div>
+                        @endif
+
+
                         <div class="row">
                             <div class='col-sm-6'>
                                 <label>Due Date</label>
@@ -28,6 +36,13 @@
 
                                     <input type="datetime-local"  name="expire_time">
                                 </div>
+
+                                @if($errors->has('expire_time'))
+
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $errors->first('expire_time') }}
+                                    </div>
+                                @endif
                             </div>
 
                         </div>
