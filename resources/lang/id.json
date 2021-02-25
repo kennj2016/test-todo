@@ -1,0 +1,22 @@
+{
+    "Delete":"Delete",
+    "Save":"Save",
+    "Back":"Back",
+    "Edit":"Edit",
+    "Show":"Show",
+    "Login":"Login",
+    "Logout":"Logout",
+    "Register":"Register",
+    "Add Task":"Add Task",
+    "Task" : "Task",
+    "Edit Task": "Edit Task",
+    "Create A New Task": "Create A New Task",
+    "Home": "Home",
+    "E-Mail Address": "E-Mail Address",
+    "Name": "Name",
+    "Password": "Password",
+    "Confirm Password": "Confirm Password",
+    "Remember Me": "Remember Me",
+    "Forgot Your Password?": "Forgot Your Password",
+    "No Task": "No Task"
+}
